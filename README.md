@@ -1,10 +1,10 @@
-# 🌿 FoodLink – Food Redistribution System
+# FoodLink – Food Redistribution System
 
 A full-stack web application connecting **food donors** with **NGOs** to reduce food waste. Built with React.js, Node.js/Express, and MySQL with proper 3NF database design, concurrency control, and role-based access.
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```
 foodlink/
@@ -45,7 +45,7 @@ foodlink/
 
 ---
 
-## 🗃️ Database Schema (3NF)
+## Database Schema (3NF)
 
 ```sql
 Cities(city_id PK, city_name UNIQUE)
@@ -71,7 +71,7 @@ Transactions(transaction_id PK, food_id FK→Food_Listings,
 
 ---
 
-## 🔒 Concurrency Control
+## Concurrency Control
 
 The request endpoint (`POST /api/requests`) uses:
 1. **`BEGIN TRANSACTION`** — wraps the entire allocation logic atomically
@@ -88,21 +88,21 @@ NGO-C requests 15kg ──┘    No double-allocation possible
 
 ---
 
-## 📊 Priority Algorithm (NGO Browse)
+## Priority Algorithm (NGO Browse)
 
 Results are ordered by a computed `priority_score`:
 
 | Score | Condition | Label |
 |-------|-----------|-------|
 | 4 | Expiry within 5 hours | 🔴 Expiring Soon |
-| 3 | Same pincode as NGO | 📍 Near You |
-| 2 | Same city as NGO | 🏙️ Same City |
-| 1 | Same state as NGO | 🗺️ Same State |
+| 3 | Same pincode as NGO | Near You |
+| 2 | Same city as NGO | Same City |
+| 1 | Same state as NGO | Same State |
 | 0 | Other | — |
 
 ---
 
-## 🚀 Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 - **Node.js** v18+
@@ -170,7 +170,7 @@ npm run dev
 
 ---
 
-## 🧪 Test the Application
+##  Test the Application
 
 ### Register as Donor
 1. Go to `http://localhost:3000/signup`
@@ -187,7 +187,7 @@ Open two NGO sessions simultaneously and request the same food listing — the r
 
 ---
 
-## 📡 API Reference
+##  API Reference
 
 | Method | Endpoint | Auth | Role | Description |
 |--------|----------|------|------|-------------|
@@ -208,7 +208,7 @@ Open two NGO sessions simultaneously and request the same food listing — the r
 
 ---
 
-## 🎨 Design Highlights
+## Design Highlights
 
 - **Typography:** Playfair Display (display) + DM Sans (body)
 - **Color System:** Green-forward brand palette with semantic status colors
@@ -218,7 +218,7 @@ Open two NGO sessions simultaneously and request the same food listing — the r
 
 ---
 
-## 🔧 Production Notes
+## Production Notes
 
 For production deployment:
 1. Set a strong `JWT_SECRET` in `.env`
@@ -229,4 +229,4 @@ For production deployment:
 
 ---
 
-*Built with ❤️ to reduce food waste and connect communities.*
+*Built  to reduce food waste and connect communities.*
